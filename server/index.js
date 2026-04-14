@@ -43,7 +43,7 @@ app.use('/runtime', express.static(runtimeDir));
 
 function createDefaultDb() {
   return {
-    users: [{ id: 'owner-01', email: 'boss@postnhanh.ai', password: '123456', name: 'Boss Edgar Son' }],
+    users: [{ id: 'owner-01', email: 'boss@viralvideo.local', password: '123456', name: 'Boss Edgar Son' }],
     sessions: [],
     profile: {
       shopName: 'Luna Beauty',
@@ -754,8 +754,8 @@ function getTemplatePacks() {
 function getBillingConfig() {
   return {
     provider: process.env.STRIPE_SECRET_KEY ? 'stripe-ready' : 'mock',
-    portalUrl: process.env.BILLING_PORTAL_URL || 'https://billing.postnhanh.local/portal',
-    checkoutBaseUrl: process.env.BILLING_CHECKOUT_BASE_URL || 'https://billing.postnhanh.local/checkout',
+    portalUrl: process.env.BILLING_PORTAL_URL || 'https://billing.viralvideo.local/portal',
+    checkoutBaseUrl: process.env.BILLING_CHECKOUT_BASE_URL || 'https://billing.viralvideo.local/checkout',
     canUseRealPayments: Boolean(process.env.STRIPE_SECRET_KEY),
   };
 }
@@ -1679,7 +1679,7 @@ function buildGeneratedContent(profile, brief, dayLabel) {
     `Ưu đãi hôm nay: ${brief.promo}.`,
     `${brief.callToAction}.`,
   ].join(' ');
-  const hashtags = ['#postnhanhAI', '#banhangonline', `#${String(profile.category).replace(/-/g, '')}`, `#${String(brief.platform).toLowerCase()}`];
+  const hashtags = ['#viralvideo', '#contentstudio', `#${String(profile.category).replace(/-/g, '')}`, `#${String(brief.platform).toLowerCase()}`];
   const callouts = [
     `Mở đầu bằng pain point: ${brief.painPoint}`,
     `Chốt lợi ích chính: ${profile.sellingPoint}`,
@@ -2737,5 +2737,5 @@ app.post('/api/viral-pipeline/run', auth, async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`PostNhanh AI API listening on http://localhost:${port}`);
+  console.log(`Viral Video Studio API listening on http://localhost:${port}`);
 });

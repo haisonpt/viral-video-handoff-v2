@@ -16,7 +16,7 @@ import {
   TemplatePack,
 } from './types';
 
-const TOKEN_KEY = 'postnhanh-token';
+const TOKEN_KEY = 'viral-video-token';
 const API = '';
 const APP_VERSION = '1.0.1';
 const RELEASE_CHANNEL = 'android-commercial-foundation';
@@ -228,7 +228,7 @@ function buildFallbackContent(profile: BrandProfile, brief: CreativeBrief): Gene
     headline: `${brief.productName} | ${profile.offer}`,
     captionShort: `${brief.productName} dành cho ${brief.targetAudience}. ${brief.callToAction}`,
     captionLong: `${profile.shopName} mang đến ${brief.productName}. Điểm nổi bật: ${brief.productDetails}. Khách hàng phù hợp: ${brief.targetAudience}. Nỗi đau cần giải quyết: ${brief.painPoint}. Ưu đãi hiện tại: ${brief.promo}. ${brief.callToAction}`,
-    hashtags: ['#banhangonline', '#contentAI', '#postnhanh', '#kinhdoanhonline'],
+    hashtags: ['#viralvideo', '#contentAI', '#videostudio', '#shortvideo'],
     callouts: ['Hook 1 câu thật mạnh', 'Nêu pain point rõ ràng', 'Nhắc ưu đãi và CTA'],
     imagePrompt: `Thiết kế bài đăng ${brief.platform} cho ${brief.productName}, phong cách ${toneLabels[brief.tone]}, ngành ${categoryLabels[profile.category]}, nổi bật ưu đãi ${brief.promo}`,
   };
@@ -271,7 +271,7 @@ function App() {
   const [token, setToken] = useState<string | null>(() => localStorage.getItem(TOKEN_KEY));
   const [authMode, setAuthMode] = useState<AuthMode>('login');
   const [name, setName] = useState('Boss Edgar Son');
-  const [email, setEmail] = useState('boss@postnhanh.ai');
+  const [email, setEmail] = useState('boss@viralvideo.local');
   const [password, setPassword] = useState('123456');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -336,7 +336,7 @@ function App() {
   const categoryTemplates = useMemo(() => templates.filter((item) => item.category === profile?.category), [templates, profile?.category]);
   const pipelineRenderMap = useMemo(() => new Map(pipelineRenders.map((job) => [job.scenePromptId, job])), [pipelineRenders]);
   const diagnosticsSnapshot = useMemo(() => ({
-    app: 'PostNhanh',
+    app: 'Viral Video Studio',
     version: APP_VERSION,
     releaseChannel: RELEASE_CHANNEL,
     platform: Capacitor.getPlatform(),
@@ -619,7 +619,7 @@ function App() {
         await navigator.share({ title: activeAsset.title, text });
       } else {
         const { Share } = await import('@capacitor/share');
-        await Share.share({ title: activeAsset.title, text, dialogTitle: 'Chia sẻ nội dung PostNhanh' });
+        await Share.share({ title: activeAsset.title, text, dialogTitle: 'Chia sẻ nội dung Viral Video Studio' });
       }
       setShareNote('Đã mở chia sẻ nội dung.');
     } catch (err) {
@@ -679,7 +679,7 @@ function App() {
         notifications: [
           {
             id: Date.now(),
-            title: 'PostNhanh',
+            title: 'Viral Video Studio',
             body: 'Nhắc nhẹ Boss tạo content mới hôm nay nhé.',
             schedule: { at: new Date(Date.now() + 5000) },
           },
@@ -716,12 +716,12 @@ function App() {
       };
 
       if (retention?.morningReminder) {
-        notifications.push({ id: 1001, title: 'PostNhanh', body: retentionMessages?.morning || 'Chào buổi sáng, đến giờ tạo content mới rồi nhé.', schedule: { at: nextAt(9, 0) } });
+        notifications.push({ id: 1001, title: 'Viral Video Studio', body: retentionMessages?.morning || 'Chào buổi sáng, đến giờ tạo content mới rồi nhé.', schedule: { at: nextAt(9, 0) } });
       }
       if (retention?.eveningReminder) {
-        notifications.push({ id: 1002, title: 'PostNhanh', body: retentionMessages?.evening || 'Buổi tối là lúc tốt để chuẩn bị nội dung cho ngày mai.', schedule: { at: nextAt(20, 0) } });
+        notifications.push({ id: 1002, title: 'Viral Video Studio', body: retentionMessages?.evening || 'Buổi tối là lúc tốt để chuẩn bị nội dung cho ngày mai.', schedule: { at: nextAt(20, 0) } });
       }
-      notifications.push({ id: 1003, title: 'PostNhanh', body: retentionMessages?.winback || `Đã ${retention?.winbackDays || 7} ngày, quay lại tạo bài mới để giữ đà bán hàng nhé.`, schedule: { at: new Date(Date.now() + (retention?.winbackDays || 7) * 24 * 60 * 60 * 1000) } });
+      notifications.push({ id: 1003, title: 'Viral Video Studio', body: retentionMessages?.winback || `Đã ${retention?.winbackDays || 7} ngày, quay lại tạo bài mới để giữ đà sáng tạo nhé.`, schedule: { at: new Date(Date.now() + (retention?.winbackDays || 7) * 24 * 60 * 60 * 1000) } });
 
       await LocalNotifications.schedule({ notifications });
       setNotificationNote(`Đã sync ${notifications.length} notification theo retention settings.`);
@@ -737,7 +737,7 @@ function App() {
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement('a');
     anchor.href = url;
-    anchor.download = `postnhanh-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    anchor.download = `viral-video-backup-${new Date().toISOString().slice(0, 10)}.json`;
     anchor.click();
     URL.revokeObjectURL(url);
     setBackupNote('Đã export backup JSON.');
@@ -753,7 +753,7 @@ function App() {
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement('a');
     anchor.href = url;
-    anchor.download = `postnhanh-diagnostics-${new Date().toISOString().slice(0, 10)}.json`;
+    anchor.download = `viral-video-diagnostics-${new Date().toISOString().slice(0, 10)}.json`;
     anchor.click();
     URL.revokeObjectURL(url);
     setSupportNote('Đã export diagnostics JSON.');
@@ -1128,7 +1128,7 @@ function App() {
       <div className="shell auth-shell">
         <section className="card auth-card phone-frame">
           <span className="eyebrow">Android-first thương mại</span>
-          <h1>{authMode === 'login' ? 'Đăng nhập PostNhanh' : 'Tạo tài khoản PostNhanh'}</h1>
+          <h1>{authMode === 'login' ? 'Đăng nhập Viral Video Studio' : 'Tạo tài khoản Viral Video Studio'}</h1>
           <p>Tạo caption bán hàng, lịch 7 ngày, lịch 30 ngày và chuẩn bị lên Android trước.</p>
           {authMode === 'register' ? <Field label="Tên hiển thị" value={name} onChange={setName} /> : null}
           <Field label="Email" value={email} onChange={setEmail} />
@@ -1136,7 +1136,7 @@ function App() {
           {error ? <p className="error-text">{error}</p> : null}
           <button className="primary-btn wide" onClick={() => completeAuth(authMode === 'login' ? '/api/auth/login' : '/api/auth/register')} disabled={loading}>{loading ? 'Đang xử lý...' : authMode === 'login' ? 'Vào app' : 'Tạo tài khoản'}</button>
           <button className="ghost-btn wide" onClick={() => setAuthMode(authMode === 'login' ? 'register' : 'login')}>{authMode === 'login' ? 'Chưa có tài khoản? Đăng ký' : 'Đã có tài khoản? Đăng nhập'}</button>
-          <p className="helper">Demo account: boss@postnhanh.ai / 123456</p>
+          <p className="helper">Demo account: boss@viralvideo.local / 123456</p>
         </section>
       </div>
     );
@@ -1150,7 +1150,7 @@ function App() {
     <div className="shell app-shell">
       <section className="hero card hero-mobile">
         <div>
-          <span className="eyebrow">PostNhanh · Android-first</span>
+          <span className="eyebrow">Viral Video Studio · Android-first</span>
           <h1>App mobile cho shop Việt Nam, có onboarding rõ hơn và paywall gần bản thương mại.</h1>
           <p>Giờ trải nghiệm đầu vào tốt hơn, người dùng mới sẽ biết phải làm gì trước khi tạo content và khi nào nên nâng cấp gói.</p>
         </div>
@@ -1550,7 +1550,7 @@ function App() {
             <div className="result-stack">
               <ResultBlock title="Bước kế tiếp cho Android" content="Dùng npm run android:sync rồi mở Android Studio để build APK/AAB. Sau đó thêm thanh toán thật và crash reporting." onCopy={() => copyText('npm run android:sync && npm run android:open')} />
               <TagBlock title="Checklist thương mại còn tiếp tục" items={['Thanh toán thật', 'Push notification native', 'Retention automation', 'Template theo ngành sâu hơn', 'Bộ 30 ngày nội dung', 'Bản iPhone sau Android']} onCopy={() => copyText('Thanh toán thật\nPush notification native\nRetention automation\nTemplate theo ngành sâu hơn\nBộ 30 ngày nội dung\nBản iPhone sau Android')} />
-              <ResultBlock title="Support" content="support@postnhanh.ai" onCopy={() => copyText('support@postnhanh.ai')} />
+              <ResultBlock title="Support" content="support@viralvideo.local" onCopy={() => copyText('support@viralvideo.local')} />
               <ResultBlock title="Privacy Policy" content="Xem file PRIVACY_POLICY.md trong workspace để đưa lên hosting hoặc landing page trước khi publish Android." onCopy={() => copyText('PRIVACY_POLICY.md')} />
               <ResultBlock title="Terms of Service" content="Xem file TERMS.md trong workspace để dùng cho billing, support và Play Store review." onCopy={() => copyText('TERMS.md')} />
               <ResultBlock title="Android release checklist" content="Đã tạo file ANDROID_RELEASE_CHECKLIST.md để chốt các bước trước khi build AAB và submit Play Store." onCopy={() => copyText('ANDROID_RELEASE_CHECKLIST.md')} />

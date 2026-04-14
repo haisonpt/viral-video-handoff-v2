@@ -2,7 +2,7 @@
 
 Boss Edgar Son,
 
-Nhung Cute bàn giao bản hiện tại của viral video pipeline trong workspace PostNhanh.
+Nhung Cute bàn giao bản hiện tại của app viral video standalone.
 
 ## Tình trạng
 - Handoff-ready
