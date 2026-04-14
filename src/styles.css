@@ -1,0 +1,154 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #f8fafc;
+  background:
+    radial-gradient(circle at top, rgba(59, 130, 246, 0.18), transparent 30%),
+    linear-gradient(180deg, #09111f 0%, #0f172a 100%);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+#root { width: 100%; }
+h1, h2, h3, p, ul { margin: 0; }
+
+.shell {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.app-shell {
+  padding-bottom: 96px;
+}
+
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  box-shadow: 0 18px 48px rgba(2, 6, 23, 0.35);
+  padding: 20px;
+}
+
+.phone-frame {
+  width: 100%;
+}
+
+.auth-card { width: min(100%, 520px); }
+.hero { display: grid; gap: 22px; margin-bottom: 18px; }
+.hero-mobile h1 { max-width: 860px; }
+.hero p, .metric span, .field span, .helper, .job-meta, .provider-card p, .result-block p, .empty-state p, li, .tab-btn, .template-card p, .check-item p, .paywall-hero p, .billing-note, .micro-copy { color: #cbd5e1; }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px; color: #93c5fd; display: inline-block; margin-bottom: 10px; }
+.hero-grid, .section-grid, .form-grid, .provider-grid, .tag-list, .result-stack, .sidebar-stack, .stack, .mobile-tabs, .action-row, .plans-grid, .analytics-grid, .templates-grid, .paywall-actions, .plan-actions, .retention-grid, .backup-actions, .pipeline-grid { display: grid; gap: 14px; }
+.hero-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+.section-grid { margin-bottom: 18px; }
+.two-up { grid-template-columns: 0.95fr 1.25fr; }
+.main-stage { grid-template-columns: 1.35fr 0.95fr; align-items: start; }
+.single-pane { grid-template-columns: 1fr; }
+.form-grid { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.compact-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin-top: 18px; }
+.metric, .provider-card, .job-card, .history-card, .result-block, .empty-state, .tips-card, .mobile-tabs, .plan-card, .template-card, .onboarding-card, .check-item, .paywall-hero, .toggle-card, .retention-panel, .backup-panel { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.06); }
+.metric { border-radius: 18px; padding: 16px; }
+.metric strong { display: block; font-size: 28px; }
+.section-head, .result-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; }
+.no-margin { margin-bottom: 0; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field input, .field select, .result-block select {
+  width: 100%; padding: 13px 15px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.86); color: #f8fafc;
+}
+.primary-btn, .ghost-btn, .tab-btn {
+  border: none; border-radius: 999px; padding: 12px 15px; font-weight: 700;
+}
+.primary-btn { background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; }
+.ghost-btn, .tab-btn { background: rgba(255, 255, 255, 0.08); color: #e2e8f0; }
+.tab-btn.active { background: linear-gradient(135deg, rgba(37, 99, 235, 0.4), rgba(124, 58, 237, 0.4)); color: white; }
+.mobile-tabs {
+  grid-template-columns: repeat(4, 1fr);
+  position: sticky;
+  top: 12px;
+  z-index: 5;
+  border-radius: 20px;
+  padding: 8px;
+  margin-bottom: 18px;
+  backdrop-filter: blur(18px);
+}
+.primary-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.wide { width: 100%; }
+.action-row { grid-template-columns: 1fr 1fr; margin-top: 16px; }
+.action-row.triple { grid-template-columns: repeat(3, 1fr); }
+.monetization-filters { grid-template-columns: repeat(4, 1fr); }
+.top-gap { margin-top: 24px; }
+.progress-label { color: #bfdbfe; font-weight: 700; }
+.progress-bar { height: 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); overflow: hidden; margin: 14px 0; }
+.progress-bar span { display: block; height: 100%; border-radius: 999px; background: linear-gradient(135deg, #2563eb, #7c3aed); }
+.error-text { color: #fca5a5; margin: 8px 0; }
+.helper { margin-top: 12px; }
+.provider-card, .job-card, .history-card, .result-block, .empty-state { border-radius: 18px; padding: 16px; }
+.provider-card.ready { border-color: rgba(74, 222, 128, 0.5); }
+.provider-card strong, .provider-card span { display: block; }
+.job-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; font-size: 14px; }
+.badge, .tag { display: inline-flex; align-items: center; padding: 5px 10px; border-radius: 999px; font-size: 12px; }
+.badge { background: rgba(37, 99, 235, 0.18); color: #bfdbfe; margin-bottom: 10px; }
+.tag { background: rgba(124, 58, 237, 0.18); color: #e9d5ff; }
+.tag.muted { background: rgba(148, 163, 184, 0.16); color: #cbd5e1; }
+.history-card { text-align: left; color: inherit; }
+.onboarding-card { border-radius: 18px; padding: 16px; }
+.retention-panel, .backup-panel { border-radius: 18px; padding: 16px; margin: 18px 0; }
+.retention-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 14px; }
+.multi-filter-grid { margin-top: 10px; }
+.toggle-card { border-radius: 16px; padding: 16px; text-align: left; color: #f8fafc; }
+.toggle-card.active { border-color: rgba(74, 222, 128, 0.5); }
+.toggle-card span { display: block; margin-top: 8px; color: #cbd5e1; }
+.checklist-grid { display: grid; gap: 10px; }
+.check-item { border-radius: 14px; padding: 12px; display: flex; gap: 10px; align-items: center; }
+.check-item.done { border-color: rgba(74, 222, 128, 0.5); }
+.check-item span { font-weight: 800; color: #93c5fd; }
+.templates-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 10px; }
+.template-card { border-radius: 18px; padding: 16px; display: grid; gap: 12px; }
+.plans-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 18px 0; }
+.plan-card { border-radius: 18px; padding: 16px; display: grid; gap: 14px; }
+.plan-card.active { border-color: rgba(74, 222, 128, 0.5); box-shadow: inset 0 0 0 1px rgba(74, 222, 128, 0.2); }
+.plan-card ul { padding-left: 18px; display: grid; gap: 8px; }
+.plan-actions { grid-template-columns: 1fr; }
+.billing-note { margin: 12px 0 0; }
+.micro-copy { font-size: 13px; }
+.notification-box { margin-top: 6px; }
+.notification-box.multi-actions { display: grid; gap: 10px; }
+.share-bar { margin-bottom: 6px; }
+.support-meta { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 12px; color: var(--muted); font-size: 0.9rem; }
+.backup-actions { grid-template-columns: 1fr 1fr; }
+.hidden-input { display: none; }
+.analytics-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin: 18px 0; }
+.paywall-hero { border-radius: 20px; padding: 18px; display: flex; justify-content: space-between; gap: 16px; align-items: center; margin-bottom: 18px; background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(124, 58, 237, 0.18)); }
+.paywall-actions { grid-template-columns: 1fr; min-width: 180px; }
+.pipeline-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.selected-card { border-color: rgba(147, 197, 253, 0.5); box-shadow: inset 0 0 0 1px rgba(147, 197, 253, 0.24); }
+.inner-card { padding: 0; background: transparent; border: none; box-shadow: none; }
+.compact-stack { gap: 10px; }
+.scene-video { width: 100%; border-radius: 16px; background: rgba(0, 0, 0, 0.3); }
+.history-card.active { border-color: rgba(147, 197, 253, 0.5); box-shadow: inset 0 0 0 1px rgba(147, 197, 253, 0.24); }
+.empty-state { min-height: 220px; display: grid; place-items: center; text-align: center; }
+.tips-card ul { padding-left: 18px; display: grid; gap: 8px; }
+
+@media (max-width: 980px) {
+  .two-up, .main-stage { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .shell { padding: 14px 12px 80px; }
+  .card, .hero { padding: 16px; border-radius: 20px; }
+  .section-head, .result-head, .paywall-hero { flex-direction: column; align-items: flex-start; }
+  .form-grid, .action-row, .action-row.triple, .backup-actions { grid-template-columns: 1fr; }
+  .mobile-tabs { position: fixed; left: 12px; right: 12px; bottom: 12px; top: auto; margin-bottom: 0; }
+}
