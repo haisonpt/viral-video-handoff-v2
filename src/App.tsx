@@ -275,7 +275,7 @@ function App() {
   const [password, setPassword] = useState('123456');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [tab, setTab] = useState<ScreenTab>('create');
+  const [tab, setTab] = useState<ScreenTab>('pipeline');
 
   const [profile, setProfile] = useState<BrandProfile | null>(null);
   const [brief, setBrief] = useState<CreativeBrief | null>(null);
@@ -1158,10 +1158,7 @@ function App() {
       </section>
 
       <div className="mobile-tabs">
-        <button className={tab === 'create' ? 'tab-btn active' : 'tab-btn'} onClick={() => setTab('create')}>Tạo</button>
         <button className={tab === 'pipeline' ? 'tab-btn active' : 'tab-btn'} onClick={() => setTab('pipeline')}>Pipeline</button>
-        <button className={tab === 'library' ? 'tab-btn active' : 'tab-btn'} onClick={() => setTab('library')}>Thư viện</button>
-        <button className={tab === 'settings' ? 'tab-btn active' : 'tab-btn'} onClick={() => setTab('settings')}>Cài đặt</button>
       </div>
 
       {tab === 'create' ? (
