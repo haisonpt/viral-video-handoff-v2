@@ -1,6 +1,6 @@
 # Viral Video Standalone App
 
-Standalone app for viral video workflow, independent from PostNhanh AI.
+Standalone app for viral video workflow.
 
 ## Local run
 
